@@ -19,25 +19,11 @@ runs:
   steps:
     - name: Install WARP
       run: |
-        ARCH=$(dpkg --print-architecture || uname -m)
-        case "$ARCH" in
-          amd64|x86_64)
-            ARCH_DEB="amd64"
-            ;;
-          arm64|aarch64)
-            ARCH_DEB="arm64"
-            ;;
-          *)
-            echo "Unsupported architecture: $ARCH"
-            exit 1
-            ;;
-        esac
-
         if [ "${{ inputs.mode }}" == 'client' ]; then
           echo "WARP mode: client warp+doh."
           sudo apt-get -y update
           curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
-          echo "deb [arch=${ARCH_DEB} signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+          echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
           sudo apt-get update
           sudo apt-get install -y cloudflare-warp
           sudo warp-cli --accept-tos registration new
