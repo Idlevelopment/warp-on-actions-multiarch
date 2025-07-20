@@ -6,7 +6,7 @@
 
 ```
   - name: Set up WARP
-    uses: Idlevelopment/warp-on-actions@main
+    uses: Idlevelopment/warp-on-actions@v1.4
     with:
       stack: dual        # Optional. Support [ ipv4, ipv6, dual ]. Default is dual.
       mode: wireguard    # Optional. Support [ wireguard, client ]. Default is wireguard.
