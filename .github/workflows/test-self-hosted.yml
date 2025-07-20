@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted
     name: client warp+doh mode by default
     steps:
-      - uses: fscarmen/warp-on-actions@v1.3
+      - uses: Idlevelopment/warp-on-actions@main
         with:
           mode: client
 
@@ -21,7 +21,7 @@ jobs:
     name: client warp+doh mode with ipv4
     steps:
       - name: Set up WARP with client with ipv4
-        uses: fscarmen/warp-on-actions@v1.3
+        uses: Idlevelopment/warp-on-actions@main
         with:
           stack: ipv4
           mode: client
@@ -31,7 +31,7 @@ jobs:
     name: client warp+doh mode with ipv6
     steps:
       - name: Set up WARP with client
-        uses: fscarmen/warp-on-actions@v1.3
+        uses: Idlevelopment/warp-on-actions@main
         with:
           stack: ipv6
           mode: client
@@ -41,43 +41,43 @@ jobs:
     name: client warp+doh mode with dual
     steps:
       - name: Set up WARP with client
-        uses: fscarmen/warp-on-actions@v1.3
+        uses: Idlevelopment/warp-on-actions@main
         with:
           stack: dual
           mode: client
 
-  wireguard-dual-by-default:
-    runs-on: self-hosted
-    name: wireguard mode by default
-    steps:
-      - uses: fscarmen/warp-on-actions@v1.3
-
-  wireguard-ipv4:
-    runs-on: self-hosted
-    name: wireguard mode with ipv4
-    steps:
-      - name: Set up WARP with client with ipv4
-        uses: fscarmen/warp-on-actions@v1.3
-        with:
-          stack: ipv4
-          mode: wireguard
+#  wireguard-dual-by-default:
+#    runs-on: self-hosted
+#    name: wireguard mode by default
+#    steps:
+#      - uses: Idlevelopment/warp-on-actions@main
+#
+#  wireguard-ipv4:
+#    runs-on: self-hosted
+#    name: wireguard mode with ipv4
+#    steps:
+#      - name: Set up WARP with client with ipv4
+#        uses: Idlevelopment/warp-on-actions@main
+#        with:
+#          stack: ipv4
+#          mode: wireguard
 
   wireguard-ipv6:
     runs-on: self-hosted
     name: wireguard mode with ipv6
     steps:
       - name: Set up WARP with client
-        uses: fscarmen/warp-on-actions@v1.3
+        uses: Idlevelopment/warp-on-actions@main
         with:
           stack: ipv6
           mode: wireguard
 
-  wireguard-dual:
-    runs-on: self-hosted
-    name: wireguard mode with dual
-    steps:
-      - name: Set up WARP with client
-        uses: fscarmen/warp-on-actions@v1.3
-        with:
-          stack: dual
-          mode: wireguard
+#  wireguard-dual:
+#    runs-on: self-hosted
+#    name: wireguard mode with dual
+#    steps:
+#      - name: Set up WARP with client
+#        uses: Idlevelopment/warp-on-actions@main
+#        with:
+#          stack: dual
+#          mode: wireguard
